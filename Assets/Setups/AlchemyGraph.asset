@@ -1,0 +1,512 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7054486341330485059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Fire
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -488, y: -360}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: -7054486341330485059}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: -7054486341330485059}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: inputElementNode
+        node: {fileID: 7313558944909957996}
+        reroutePoints: []
+      - fieldName: inputElementNode
+        node: {fileID: -37508991766642213}
+        reroutePoints: []
+      - fieldName: inputElementNode
+        node: {fileID: 2589686081724936713}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Fire
+  elementSetup: {fileID: 11400000, guid: f060efe87e0698546abe0458aec6fb2b, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &-6532471407869302229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Grass
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 504, y: -856}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: -6532471407869302229}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputElementNode
+        node: {fileID: 6275645096951706297}
+        reroutePoints: []
+      - fieldName: outputElementNode
+        node: {fileID: 6296976437297302278}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: -6532471407869302229}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Grass
+  elementSetup: {fileID: 11400000, guid: c211e14a616b1824a96098e9a6e70cd7, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &-4816968049460961541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Air
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -472, y: 456}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: -4816968049460961541}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: -4816968049460961541}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: inputElementNode
+        node: {fileID: 2589686081724936713}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Air
+  elementSetup: {fileID: 11400000, guid: 93bb6ac6ddbe4fd49a1ad48f467c58ea, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &-3791293717448018847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Water
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -472, y: 184}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: -3791293717448018847}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: -3791293717448018847}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: inputElementNode
+        node: {fileID: -37508991766642213}
+        reroutePoints: []
+      - fieldName: inputElementNode
+        node: {fileID: 6275645096951706297}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Water
+  elementSetup: {fileID: 11400000, guid: 019a34090837b5449a46775df3d94812, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &-37508991766642213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Steam
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: -24}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: -37508991766642213}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputElementNode
+        node: {fileID: -3791293717448018847}
+        reroutePoints: []
+      - fieldName: outputElementNode
+        node: {fileID: -7054486341330485059}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: -37508991766642213}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Steam
+  elementSetup: {fileID: 11400000, guid: cafb6519361ef9c47802ee6dde946b6b, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3f801f366f45818a7c269ddc9322a8, type: 3}
+  m_Name: AlchemyGraph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -7054486341330485059}
+  - {fileID: -3791293717448018847}
+  - {fileID: 6296976437297302278}
+  - {fileID: -4816968049460961541}
+  - {fileID: 7313558944909957996}
+  - {fileID: -37508991766642213}
+  - {fileID: 2589686081724936713}
+  - {fileID: 6275645096951706297}
+  - {fileID: 4799396577744549718}
+  - {fileID: -6532471407869302229}
+  elements:
+  - {fileID: 11400000, guid: f060efe87e0698546abe0458aec6fb2b, type: 2}
+  - {fileID: 11400000, guid: 019a34090837b5449a46775df3d94812, type: 2}
+  - {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}
+  - {fileID: 11400000, guid: 93bb6ac6ddbe4fd49a1ad48f467c58ea, type: 2}
+  - {fileID: 11400000, guid: 21d5054127cd22849b65a2a4131afae7, type: 2}
+  - {fileID: 11400000, guid: cafb6519361ef9c47802ee6dde946b6b, type: 2}
+  - {fileID: 11400000, guid: 164f34bc4de1183438d2100d13ea5d94, type: 2}
+  - {fileID: 11400000, guid: f21a215c4fcc94c40847bbf2e1682f0b, type: 2}
+  - {fileID: 11400000, guid: 344958b33fdb1bb4ab08810fddf523c8, type: 2}
+  - {fileID: 11400000, guid: c211e14a616b1824a96098e9a6e70cd7, type: 2}
+--- !u!114 &2589686081724936713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Heat
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: 248}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: 2589686081724936713}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputElementNode
+        node: {fileID: -4816968049460961541}
+        reroutePoints: []
+      - fieldName: outputElementNode
+        node: {fileID: -7054486341330485059}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: 2589686081724936713}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Heat
+  elementSetup: {fileID: 11400000, guid: 164f34bc4de1183438d2100d13ea5d94, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &4799396577744549718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Trees
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 584, y: -584}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: 4799396577744549718}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputElementNode
+        node: {fileID: 6275645096951706297}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: 4799396577744549718}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Trees
+  elementSetup: {fileID: 11400000, guid: 344958b33fdb1bb4ab08810fddf523c8, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &6275645096951706297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Plant
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: -568}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: 6275645096951706297}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputElementNode
+        node: {fileID: -3791293717448018847}
+        reroutePoints: []
+      - fieldName: outputElementNode
+        node: {fileID: 6296976437297302278}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: 6275645096951706297}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: inputElementNode
+        node: {fileID: 4799396577744549718}
+        reroutePoints: []
+      - fieldName: inputElementNode
+        node: {fileID: -6532471407869302229}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Plant
+  elementSetup: {fileID: 11400000, guid: f21a215c4fcc94c40847bbf2e1682f0b, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &6296976437297302278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Ground
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -488, y: -632}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: 6296976437297302278}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: 6296976437297302278}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: inputElementNode
+        node: {fileID: 7313558944909957996}
+        reroutePoints: []
+      - fieldName: inputElementNode
+        node: {fileID: 6275645096951706297}
+        reroutePoints: []
+      - fieldName: inputElementNode
+        node: {fileID: -6532471407869302229}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Ground
+  elementSetup: {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &7313558944909957996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Lava
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 232, y: -296}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: 7313558944909957996}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputElementNode
+        node: {fileID: 6296976437297302278}
+        reroutePoints: []
+      - fieldName: outputElementNode
+        node: {fileID: -7054486341330485059}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: 7313558944909957996}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Lava
+  elementSetup: {fileID: 11400000, guid: 21d5054127cd22849b65a2a4131afae7, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
