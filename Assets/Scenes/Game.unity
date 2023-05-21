@@ -929,8 +929,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unlockElementController: {fileID: 4881961301146728722, guid: 0956b0d95eae8da4e8544e71cd798d63, type: 3}
-  _alchemyGraph: {fileID: 11400000, guid: 2f5334b2074c1474a92b0828f218390f, type: 2}
-  _parentElementController: {fileID: 185344181}
+  _baseElements:
+  - {fileID: 11400000, guid: 019a34090837b5449a46775df3d94812, type: 2}
+  - {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}
+  - {fileID: 11400000, guid: 93bb6ac6ddbe4fd49a1ad48f467c58ea, type: 2}
+  - {fileID: 11400000, guid: f060efe87e0698546abe0458aec6fb2b, type: 2}
+  _parentUnlockElements: {fileID: 185344181}
+  _parentFuturelements: {fileID: 1176233502}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1789,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 100
   m_Viewport: {fileID: 311645483}
   m_HorizontalScrollbar: {fileID: 294704599}
   m_VerticalScrollbar: {fileID: 0}
@@ -2586,7 +2591,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 100
   m_Viewport: {fileID: 1610259437}
   m_HorizontalScrollbar: {fileID: 895959279}
   m_VerticalScrollbar: {fileID: 0}
@@ -2695,7 +2700,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 100
   m_Viewport: {fileID: 444053910}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1727269312}

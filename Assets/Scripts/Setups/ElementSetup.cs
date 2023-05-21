@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using Core;
+using Services;
 
 namespace Setups
 {
@@ -11,6 +14,40 @@ namespace Setups
         public Sprite iconElement;
         public List<ElementSetup> parentElements;
         public List<ElementSetup> childElements;
+
+
+        private SessionDataController _sessionDataController;
+        private DataHelper _dataHelper;
+
+        public void Init(SessionDataController sessionDataController, DataHelper dataHelper)
+        {
+            _sessionDataController = sessionDataController;
+            _dataHelper = dataHelper;
+        }
+
+        public void OpenElement()
+        {
+            _dataHelper.ElementsDataModel.SetStateElement(keyElement, StateElement.Open);
+            _sessionDataController.RemoveFutureElements(this);
+            _sessionDataController.AddUnlockElements(this);
+        }
+
+        public StateElement GetStateElement() => _dataHelper.ElementsDataModel.GetStateElement(keyElement);
+
+        public void CheckOpenElements()
+        {
+            if (GetStateElement() == StateElement.Open)
+            {
+                _sessionDataController.AddUnlockElements(this);
+                foreach (var elementSetup in parentElements)
+                {
+                    elementSetup.Init(_sessionDataController, _dataHelper);
+                    elementSetup.CheckOpenElements();
+                }
+            }
+            else
+                _sessionDataController.AddFutureElements(this);
+        }
 
         public ElementSetup CheckCreateNewElement(List<ElementSetup> currentElements)
         {

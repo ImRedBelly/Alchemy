@@ -6,7 +6,7 @@ namespace DataModels
 {
     public class ElementsDataModel
     {
-        private List<ElementData> elementData = new List<ElementData>();
+        private List<ElementData> _elementData = new List<ElementData>();
 
         public StateElement GetStateElement(string keyElement) => GetElement(keyElement).stateElement;
 
@@ -17,13 +17,13 @@ namespace DataModels
         }
 
 
-        public ElementData GetElement(string keyElement)
+        private ElementData GetElement(string keyElement)
         {
-            var element = elementData.FirstOrDefault(x => x.keyElement == keyElement);
+            var element = _elementData.FirstOrDefault(x => x.keyElement == keyElement);
             if (element == null)
             {
-                element = new ElementData() {keyElement = keyElement};
-                elementData.Add(element);
+                element = new ElementData() {keyElement = keyElement, stateElement = StateElement.Close};
+                _elementData.Add(element);
             }
 
             return element;

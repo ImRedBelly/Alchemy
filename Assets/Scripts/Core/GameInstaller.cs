@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using Services;
+using Zenject;
 
 namespace Core
 {
@@ -7,6 +8,7 @@ namespace Core
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<SessionDataController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DataHelper>().AsSingle();
         }
     }
 }

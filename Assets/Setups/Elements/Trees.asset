@@ -17,3 +17,4 @@ MonoBehaviour:
   parentElements: []
   childElements:
   - {fileID: 11400000, guid: f21a215c4fcc94c40847bbf2e1682f0b, type: 2}
+  - {fileID: 11400000, guid: f21a215c4fcc94c40847bbf2e1682f0b, type: 2}
