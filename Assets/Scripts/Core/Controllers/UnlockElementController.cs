@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Setups;
+using Zenject;
 using Core.Views;
-using Setups;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +12,8 @@ namespace Core.Controllers
         [SerializeField] private UnlockElementView _elementView;
 
         private ElementSetup _elementSetup;
+
+        [Inject] private SessionDataController _sessionDataController;
 
         private void Start()
         {
@@ -27,8 +29,7 @@ namespace Core.Controllers
 
         private void AddElementToBar()
         {
-            if (!FindObjectOfType<BarController>().BarIsFull)
-                FindObjectOfType<BarController>().AddElement(_elementSetup);
+            _sessionDataController.OnAppendElement(_elementSetup);
         }
     }
 }

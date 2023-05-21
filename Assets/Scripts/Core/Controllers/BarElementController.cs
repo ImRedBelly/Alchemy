@@ -1,7 +1,9 @@
-﻿using Setups;
+﻿using System;
+using Setups;
 using Core.Views;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Core.Controllers
 {
@@ -12,15 +14,21 @@ namespace Core.Controllers
         [SerializeField] private BarElementsView _barElementsView;
         [SerializeField] private Sprite _defaultIconElement;
 
+        [Inject] private SessionDataController _sessionDataController;
         private ElementSetup _elementSetup;
+
 
         private void Start()
         {
-            _buttonRemoveElement.onClick.AddListener(() => UpdateElementSetup(null));
+            _sessionDataController.AppendButtonBarElementController(this);
+            _buttonRemoveElement.onClick.AddListener(RemoveElementSetup);
+        }
+        private void RemoveElementSetup()
+        {
+            if (ElementEmpty) return;
+            _sessionDataController.OnRemoveElement(_elementSetup);
             UpdateElementSetup(null);
         }
-
-        public ElementSetup GetElementSetup() => _elementSetup;
 
         public void UpdateElementSetup(ElementSetup elementSetup)
         {

@@ -37,6 +37,7 @@ namespace OdinNode.ElementsGraph
                 elementSetup = asset;
             }
 
+            EditorUtility.SetDirty(elementSetup);
             var parentPort = GetOutputPort(nameof(outputElementNode)).GetConnections();
             elementSetup.parentElements = parentPort.Select(x => x.node as ElementDataNode)
                 .Select(x => x.elementSetup).ToList();
@@ -45,9 +46,9 @@ namespace OdinNode.ElementsGraph
             var childPort = GetInputPort(nameof(inputElementNode)).GetConnections();
             elementSetup.childElements = childPort.Select(x => x.node as ElementDataNode)
                 .Select(x => x.elementSetup).ToList();
+            name = elementSetup.keyElement;
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            name = elementSetup.keyElement;
         }
 
 
