@@ -1,4 +1,5 @@
 ﻿using DataModels;
+using Newtonsoft.Json;
 using UnityEngine;
 using Zenject;
 
@@ -9,13 +10,17 @@ namespace Services
         public ElementsDataModel ElementsDataModel { get; private set; }
 
         private string _keyElementsDataModel = "ElementsDataModel";
+
         public void Initialize()
         {
             Init();
         }
-        public void Init()
+
+        private void Init()
         {
-            ElementsDataModel = JsonUtility.FromJson<ElementsDataModel>(PlayerPrefs.GetString(_keyElementsDataModel));
+            ElementsDataModel = JsonConvert.DeserializeObject<ElementsDataModel>
+                (PlayerPrefs.GetString(_keyElementsDataModel));
+            
             if (ElementsDataModel == null)
             {
                 ElementsDataModel = new ElementsDataModel();
@@ -25,9 +30,7 @@ namespace Services
 
         public void SaveElementsDataModel()
         {
-            PlayerPrefs.SetString(_keyElementsDataModel, JsonUtility.ToJson(ElementsDataModel));
+            PlayerPrefs.SetString(_keyElementsDataModel, JsonConvert.SerializeObject(ElementsDataModel));
         }
-
-     
     }
 }

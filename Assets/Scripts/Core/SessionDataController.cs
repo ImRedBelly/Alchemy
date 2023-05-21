@@ -8,21 +8,17 @@ namespace Core
 {
     public class SessionDataController
     {
-        public event Action<ElementSetup> AppendElement;
-        public event Action<ElementSetup> RemoveElement;
-        public event Action<ElementSetup> AppendUnlockElement;
-        public event Action<ElementSetup> RemoveFutureElement;
+        public event Action<ElementSetup> CreateNewElement;
 
-        public bool BarIsFull => _elementSetups.Count >= 3;
-        public bool BarIsEmpty => _elementSetups.Count == 0;
-
-
+        public bool BarIsFull => _elementInBar.Count >= 3;
+        public bool BarIsEmpty => _elementInBar.Count == 0;
+        
         private List<ElementSetup> _unlockElements = new List<ElementSetup>();
         private List<ElementSetup> _futureElements = new List<ElementSetup>();
-        private List<ElementSetup> _elementSetups = new List<ElementSetup>();
+        private List<ElementSetup> _elementInBar = new List<ElementSetup>();
         private List<BarElementController> _barButtonsElementControllers = new List<BarElementController>();
 
-        public List<ElementSetup> GetElementSetups() => _elementSetups;
+        public List<ElementSetup> GetElementInBar() => _elementInBar;
 
         public void AppendButtonBarElementController(BarElementController elementController)
         {
@@ -34,20 +30,17 @@ namespace Core
         {
             if (BarIsFull) return;
             var elementBar = _barButtonsElementControllers.FirstOrDefault(x => x.ElementEmpty);
-            if (elementBar != null) elementBar.UpdateElementSetup(elementSetup);
-
-
-            _elementSetups.Add(elementSetup);
-            AppendElement?.Invoke(elementSetup);
+            if (elementBar != null)
+            {
+                elementBar.UpdateElementSetup(elementSetup);
+                _elementInBar.Add(elementSetup);
+            }
         }
 
         public void OnRemoveElement(ElementSetup elementSetup)
         {
-            if (_elementSetups.Contains(elementSetup))
-            {
-                _elementSetups.Remove(elementSetup);
-                RemoveElement?.Invoke(elementSetup);
-            }
+            if (_elementInBar.Contains(elementSetup))
+                _elementInBar.Remove(elementSetup);
         }
 
         public List<ElementSetup> GetUnlockElements() => _unlockElements;
@@ -57,11 +50,14 @@ namespace Core
             if (!_unlockElements.Contains(elementSetup))
             {
                 _unlockElements.Add(elementSetup);
-                AppendUnlockElement?.Invoke(elementSetup);
+                CreateNewElement?.Invoke(elementSetup);
             }
         }
 
-        public List<ElementSetup> GetFutureElements() => _futureElements;
+        public bool FutureElementIsCreate(ElementSetup elementSetup)
+            => _futureElements.Contains(elementSetup);
+        public List<ElementSetup> GetFutureElements()
+            => _futureElements;
 
         public void AddFutureElements(ElementSetup elementSetup)
         {
@@ -72,10 +68,8 @@ namespace Core
         public void RemoveFutureElements(ElementSetup elementSetup)
         {
             if (_futureElements.Contains(elementSetup))
-            {
                 _futureElements.Remove(elementSetup);
-                RemoveFutureElement?.Invoke(elementSetup);
-            }
         }
+
     }
 }

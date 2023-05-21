@@ -1,39 +1,25 @@
-﻿using System;
-using System.Linq;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace DataModels
 {
     public class ElementsDataModel
     {
-        private List<ElementData> _elementData = new List<ElementData>();
+        [JsonProperty] private Dictionary<string, StateElement> _elementData = new Dictionary<string, StateElement>();
 
-        public StateElement GetStateElement(string keyElement) => GetElement(keyElement).stateElement;
+        public StateElement GetStateElement(string keyElement)
+        {
+            if (_elementData.ContainsKey(keyElement))
+                return _elementData[keyElement];
+            return StateElement.Close;
+        }
 
         public void SetStateElement(string keyElement, StateElement stateElement)
         {
-            var element = GetElement(keyElement);
-            element.stateElement = stateElement;
+            if (_elementData.ContainsKey(keyElement))
+                _elementData[keyElement] = stateElement;
+            else
+                _elementData.Add(keyElement, stateElement);
         }
-
-
-        private ElementData GetElement(string keyElement)
-        {
-            var element = _elementData.FirstOrDefault(x => x.keyElement == keyElement);
-            if (element == null)
-            {
-                element = new ElementData() {keyElement = keyElement, stateElement = StateElement.Close};
-                _elementData.Add(element);
-            }
-
-            return element;
-        }
-    }
-
-    [Serializable]
-    public class ElementData
-    {
-        public string keyElement;
-        public StateElement stateElement;
     }
 }

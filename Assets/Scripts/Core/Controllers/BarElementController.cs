@@ -23,6 +23,7 @@ namespace Core.Controllers
             _sessionDataController.AppendButtonBarElementController(this);
             _buttonRemoveElement.onClick.AddListener(RemoveElementSetup);
         }
+
         private void RemoveElementSetup()
         {
             if (ElementEmpty) return;

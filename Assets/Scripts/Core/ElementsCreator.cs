@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Setups;
 using Zenject;
@@ -24,6 +25,12 @@ namespace Core
         private void Start()
         {
             StartCoroutine(CheckElementSetups());
+            _sessionDataController.CreateNewElement += RemoveFutureAndCreateUnlockElement;
+        }
+
+        private void OnDisable()
+        {
+            _sessionDataController.CreateNewElement -= RemoveFutureAndCreateUnlockElement;
         }
 
         private IEnumerator CheckElementSetups()
@@ -37,28 +44,53 @@ namespace Core
             foreach (var elementSetup in _baseElements)
                 elementSetup.CheckOpenElements();
             yield return new WaitForSeconds(1);
-            CreateOpenElements();
-            CreateFutureElements();
+            CreateOpenElements(_sessionDataController.GetUnlockElements());
+            CreateFutureElements(_sessionDataController.GetFutureElements());
         }
 
-        private void CreateOpenElements()
+        private void CreateOpenElements(List<ElementSetup> elementSetups)
         {
-            foreach (var elementSetup in _sessionDataController.GetUnlockElements())
+            foreach (var elementSetup in elementSetups)
+                _unlockElements.Add(CreateElementPanel(elementSetup, _parentUnlockElements));
+        }
+
+        private void CreateFutureElements(List<ElementSetup> elementSetups)
+        {
+            foreach (var elementSetup in elementSetups)
+                _futureElements.Add(CreateElementPanel(elementSetup, _parentFuturelements));
+        }
+
+        private void RemoveFutureAndCreateUnlockElement(ElementSetup elementSetup)
+        {
+            foreach (var futureElement in _futureElements)
             {
-                var elementController = Instantiate(_unlockElementController, _parentUnlockElements);
-                elementController.UpdateElementSetup(elementSetup);
-                _unlockElements.Add(elementController);
+                if (futureElement.CheckSameElementSetup(elementSetup.keyElement))
+                {
+                    elementSetup.Init(_sessionDataController, _dataHelper);
+                    CreateElementPanel(elementSetup, _parentUnlockElements);
+
+
+                    foreach (var newFutureElementSetup in elementSetup.parentElements)
+                        if (!_sessionDataController.FutureElementIsCreate(newFutureElementSetup))
+                        {
+                            newFutureElementSetup.Init(_sessionDataController, _dataHelper);
+                            _futureElements.Add(CreateElementPanel(newFutureElementSetup, _parentFuturelements));
+                            _sessionDataController.AddFutureElements(newFutureElementSetup);
+                        }
+
+
+                    Destroy(futureElement.gameObject);
+                    _futureElements.Remove(futureElement);
+                    break;
+                }
             }
         }
 
-        private void CreateFutureElements()
+        private UnlockElementController CreateElementPanel(ElementSetup elementSetup, Transform parent)
         {
-            foreach (var elementSetup in _sessionDataController.GetFutureElements())
-            {
-                var elementController = Instantiate(_unlockElementController, _parentFuturelements);
-                elementController.UpdateElementSetup(elementSetup);
-                _futureElements.Add(elementController);
-            }
+            var elementController = Instantiate(_unlockElementController, parent);
+            elementController.UpdateElementSetup(elementSetup);
+            return elementController;
         }
     }
 }

@@ -27,6 +27,8 @@ namespace Core.Controllers
             _elementView.UpdateIconElement(_elementSetup.iconElement);
         }
 
+        public bool CheckSameElementSetup(string keyElement) => _elementSetup.keyElement == keyElement;
+
         private void AddElementToBar()
         {
             _sessionDataController.OnAppendElement(_elementSetup);

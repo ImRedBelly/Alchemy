@@ -28,6 +28,7 @@ namespace Setups
         public void OpenElement()
         {
             _dataHelper.ElementsDataModel.SetStateElement(keyElement, StateElement.Open);
+
             _sessionDataController.RemoveFutureElements(this);
             _sessionDataController.AddUnlockElements(this);
         }
