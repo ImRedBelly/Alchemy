@@ -22,17 +22,13 @@ namespace Core.Controllers
             if (_sessionDataController.BarIsEmpty) return;
             var elements = _sessionDataController.GetElementInBar();
             var newElement = elements[0].CheckCreateNewElement(elements);
-            if (newElement != null)
+            if (newElement != null && _dataHelper.ElementsDataModel
+                .GetStateElement(newElement.keyElement) == StateElement.Close)
             {
                 newElement.OpenElement();
                 _dataHelper.SaveElementsDataModel();
+                _sessionDataController.ResetElementsInBar();
             }
-
-            var elementsName = " ";
-            foreach (var elementSetup in elements)
-                elementsName += elementSetup.keyElement;
-
-            Debug.LogError(elementsName + ": " + newElement);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Core.Controllers
             _buttonRemoveElement.onClick.AddListener(RemoveElementSetup);
         }
 
-        private void RemoveElementSetup()
+        public void RemoveElementSetup()
         {
             if (ElementEmpty) return;
             _sessionDataController.OnRemoveElement(_elementSetup);

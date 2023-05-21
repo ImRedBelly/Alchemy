@@ -12,7 +12,7 @@ namespace Core
 
         public bool BarIsFull => _elementInBar.Count >= 3;
         public bool BarIsEmpty => _elementInBar.Count == 0;
-        
+
         private List<ElementSetup> _unlockElements = new List<ElementSetup>();
         private List<ElementSetup> _futureElements = new List<ElementSetup>();
         private List<ElementSetup> _elementInBar = new List<ElementSetup>();
@@ -24,6 +24,12 @@ namespace Core
         {
             if (!_barButtonsElementControllers.Contains(elementController))
                 _barButtonsElementControllers.Add(elementController);
+        }
+
+        public void ResetElementsInBar()
+        {
+            foreach (var barElement in _barButtonsElementControllers)
+                barElement.RemoveElementSetup();
         }
 
         public void OnAppendElement(ElementSetup elementSetup)
@@ -56,6 +62,7 @@ namespace Core
 
         public bool FutureElementIsCreate(ElementSetup elementSetup)
             => _futureElements.Contains(elementSetup);
+
         public List<ElementSetup> GetFutureElements()
             => _futureElements;
 
@@ -70,6 +77,5 @@ namespace Core
             if (_futureElements.Contains(elementSetup))
                 _futureElements.Remove(elementSetup);
         }
-
     }
 }

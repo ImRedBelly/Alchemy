@@ -1,35 +1,21 @@
-﻿using Setups;
-using Zenject;
-using Core.Views;
+﻿using Core.Views;
+using Setups;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Core.Controllers
 {
-    public class UnlockElementController : MonoBehaviour
+    public class UnlockElementController : ElementController
     {
-        [SerializeField] private Button _buttonChooseElement;
         [SerializeField] private UnlockElementView _elementView;
 
-        private ElementSetup _elementSetup;
-
-        [Inject] private SessionDataController _sessionDataController;
-
-        private void Start()
+        public override void UpdateElementSetup(ElementSetup elementSetup)
         {
-            _buttonChooseElement.onClick.AddListener(AddElementToBar);
-        }
-
-        public void UpdateElementSetup(ElementSetup elementSetup)
-        {
-            _elementSetup = elementSetup;
+            base.UpdateElementSetup(elementSetup);
             _elementView.UpdateNameElement(_elementSetup.keyElement);
             _elementView.UpdateIconElement(_elementSetup.iconElement);
         }
 
-        public bool CheckSameElementSetup(string keyElement) => _elementSetup.keyElement == keyElement;
-
-        private void AddElementToBar()
+        protected override void OnClickToButton()
         {
             _sessionDataController.OnAppendElement(_elementSetup);
         }
