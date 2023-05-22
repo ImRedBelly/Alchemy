@@ -90,14 +90,14 @@ namespace Core
         private ElementController CreateUnlockElementPanel(ElementSetup elementSetup, Transform parent)
         {
             var elementController = Instantiate(_unlockElementController, parent);
-            elementController.UpdateElementSetup(elementSetup);
+            elementController.Initialize(elementSetup);
             return elementController;
         }
 
         private ElementController CreateLockElementPanel(ElementSetup elementSetup, Transform parent)
         {
             var elementController = Instantiate(_lockElementController, parent);
-            elementController.UpdateElementSetup(elementSetup);
+            elementController.Initialize(elementSetup);
             return elementController;
         }
     }

@@ -18,10 +18,10 @@ namespace Core.Controllers
 
         public void Initialize(ElementSetup elementSetup)
         {
-            foreach (var parentElementSetup in elementSetup.childElements)
+            foreach (var childElement in elementSetup.childElements)
             {
                 var elementInfo = Instantiate(_elementInfoController, _parentElementInfo);
-                elementInfo.UpdateElementSetup(parentElementSetup);
+                elementInfo.Initialize(elementSetup, childElement);
             }
         }
 
