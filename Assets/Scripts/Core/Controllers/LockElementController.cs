@@ -19,7 +19,15 @@ namespace Core.Controllers
         protected override void OnClickToButton()
         {
             // Show info Dialog Or Open View Element
-            _dialogHelper.CreateDialogElementInfo(_elementSetup);
+            if (stateElement)
+                _dialogHelper.CreateDialogElementInfo(_elementSetup);
+            else
+            {
+                _dataHelper.ElementsDataModel.SetHintStateElement(_elementSetup.keyElement, 
+                    _elementSetup.keyElement, StateElement.Open);
+                _dataHelper.SaveElementsDataModel();
+                UpdateElementSetup();
+            }
         }
     }
 }

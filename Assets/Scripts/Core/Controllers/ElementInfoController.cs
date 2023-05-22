@@ -23,6 +23,10 @@ namespace Core.Controllers
         protected override void OnClickToButton()
         {
             //Open View Element
+            _dataHelper.ElementsDataModel.SetHintStateElement(_parentElementSetup.keyElement,
+                _elementSetup.keyElement, StateElement.Open);
+            _dataHelper.SaveElementsDataModel();
+            UpdateElementSetup();
         }
     }
 }
