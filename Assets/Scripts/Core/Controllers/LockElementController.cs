@@ -1,22 +1,16 @@
-﻿using Setups;
-using Core.Views;
-using UnityEngine;
+﻿using Zenject;
+using Services;
 
 namespace Core.Controllers
 {
     public class LockElementController : ElementController
     {
-        [SerializeField] private LockElementView _elementView;
+        [Inject] private DialogHelper _dialogHelper;
 
-        public override void UpdateElementSetup(ElementSetup elementSetup)
-        {
-            base.UpdateElementSetup(elementSetup);
-            _elementView.UpdateIconElement(_elementSetup.iconElement);
-        }
-        
         protected override void OnClickToButton()
         {
-            //Show Info Dialog
+            // Show info Dialog Or Open View Element
+            _dialogHelper.CreateDialogElementInfo(_elementSetup);
         }
     }
 }
