@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 719c4ca3d0c94574caad0b2c17ecc3a2, type: 3}
-  m_Name: MaterialsContainer
+  m_Name: ColorContainer
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 1e971de7b3967864f8618b36a0083cc7, type: 2}
-  colorMaterial: {fileID: 2100000, guid: 2dc2f1c47bb06744d8cf06bbbd193d5f, type: 2}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  lockColor: {r: 0, g: 0, b: 0, a: 0.78431374}

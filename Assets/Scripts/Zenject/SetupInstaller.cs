@@ -5,11 +5,11 @@ namespace Zenject
 {
     public class SetupInstaller : MonoInstaller
     {
-        [SerializeField] private MaterialsContainer _materialsContainer;
+        [SerializeField] private ColorContainer colorContainer;
 
         public override void InstallBindings()
         {
-            Container.Bind<MaterialsContainer>().FromInstance(_materialsContainer).AsSingle();
+            Container.Bind<ColorContainer>().FromInstance(colorContainer).AsSingle();
         }
     }
 }

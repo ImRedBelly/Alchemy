@@ -14,7 +14,7 @@ namespace Core.Controllers
 
         protected ElementSetup _elementSetup;
         [Inject] protected SessionDataController _sessionDataController;
-        [Inject] protected MaterialsContainer _materialsContainer;
+        [Inject] protected ColorContainer ColorContainer;
         [Inject] protected DataHelper _dataHelper;
 
         protected bool stateElement = true;
@@ -33,11 +33,11 @@ namespace Core.Controllers
             _elementView.UpdateNameElement(stateElement ? _elementSetup.keyElement : "???");
             _elementView.UpdateIconElement(_elementSetup.iconElement);
 
-            var materialIcon = stateElement
-                ? _materialsContainer.defaultMaterial
-                : _materialsContainer.colorMaterial;
+            var colorIcon = stateElement
+                ? ColorContainer.defaultColor
+                : ColorContainer.lockColor;
 
-            _elementView.UpdateMaterialIcon(materialIcon);
+            _elementView.UpdateColorIcon(colorIcon);
         }
 
         public bool CheckSameElementSetup(string keyElement)
