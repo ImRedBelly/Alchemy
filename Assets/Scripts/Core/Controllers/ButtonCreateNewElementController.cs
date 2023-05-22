@@ -10,6 +10,7 @@ namespace Core.Controllers
         [SerializeField] private Button _buttonCreateNewElement;
 
         [Inject] private SessionDataController _sessionDataController;
+        [Inject] private DialogHelper _dialogHelper;
         [Inject] private DataHelper _dataHelper;
 
         private void Start()
@@ -28,6 +29,7 @@ namespace Core.Controllers
                 newElement.OpenElement();
                 _dataHelper.SaveElementsDataModel();
                 _sessionDataController.ResetButtonBarElementControllers();
+                _dialogHelper.CreateDialogNewElement(newElement);
             }
         }
     }
