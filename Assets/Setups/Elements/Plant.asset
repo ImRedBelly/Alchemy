@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plant
   m_EditorClassIdentifier: 
   keyElement: Plant
-  iconElement: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  iconElement: {fileID: 21300000, guid: 8183290151df3384f83e62115e11c3dd, type: 3}
   parentElements:
   - {fileID: 11400000, guid: 344958b33fdb1bb4ab08810fddf523c8, type: 2}
   - {fileID: 11400000, guid: c211e14a616b1824a96098e9a6e70cd7, type: 2}

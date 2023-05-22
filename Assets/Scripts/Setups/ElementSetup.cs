@@ -3,6 +3,7 @@ using System;
 using Services;
 using UnityEngine;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
 namespace Setups
 {
@@ -10,7 +11,7 @@ namespace Setups
     public class ElementSetup : ScriptableObject
     {
         public string keyElement;
-        public Sprite iconElement;
+        [PreviewField(50)] public Sprite iconElement;
         public List<ElementSetup> parentElements;
         public List<ElementSetup> childElements;
 
