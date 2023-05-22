@@ -27,7 +27,7 @@ namespace Core.Controllers
             {
                 newElement.OpenElement();
                 _dataHelper.SaveElementsDataModel();
-                _sessionDataController.ResetElementsInBar();
+                _sessionDataController.ResetButtonBarElementControllers();
             }
         }
     }

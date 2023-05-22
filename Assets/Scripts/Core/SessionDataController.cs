@@ -18,7 +18,6 @@ namespace Core
         private List<ElementSetup> _elementInBar = new List<ElementSetup>();
         private List<BarElementController> _barButtonsElementControllers = new List<BarElementController>();
 
-        public List<ElementSetup> GetElementInBar() => _elementInBar;
 
         public void AppendButtonBarElementController(BarElementController elementController)
         {
@@ -26,11 +25,13 @@ namespace Core
                 _barButtonsElementControllers.Add(elementController);
         }
 
-        public void ResetElementsInBar()
+        public void ResetButtonBarElementControllers()
         {
             foreach (var barElement in _barButtonsElementControllers)
                 barElement.RemoveElementSetup();
         }
+
+        public List<ElementSetup> GetElementInBar() => _elementInBar;
 
         public void OnAppendElement(ElementSetup elementSetup)
         {
@@ -60,7 +61,7 @@ namespace Core
             }
         }
 
-        public bool FutureElementIsCreate(ElementSetup elementSetup)
+        public bool FutureElementIsCreated(ElementSetup elementSetup)
             => _futureElements.Contains(elementSetup);
 
         public List<ElementSetup> GetFutureElements()

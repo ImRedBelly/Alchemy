@@ -43,7 +43,7 @@ namespace Core
             }
 
             foreach (var elementSetup in _baseElements)
-                elementSetup.CheckOpenElements();
+                elementSetup.ProcessOpenElements();
             yield return new WaitForSeconds(1);
             CreateOpenElements(_sessionDataController.GetUnlockElements());
             CreateFutureElements(_sessionDataController.GetFutureElements());
@@ -72,7 +72,7 @@ namespace Core
 
 
                     foreach (var newFutureElementSetup in elementSetup.parentElements)
-                        if (!_sessionDataController.FutureElementIsCreate(newFutureElementSetup))
+                        if (!_sessionDataController.FutureElementIsCreated(newFutureElementSetup))
                         {
                             newFutureElementSetup.Init(_sessionDataController, _dataHelper);
                             _futureElements.Add(CreateLockElementPanel(newFutureElementSetup, _parentFuturelements));

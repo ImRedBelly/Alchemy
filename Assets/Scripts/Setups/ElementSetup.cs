@@ -34,7 +34,7 @@ namespace Setups
 
         public StateElement GetStateElement() => _dataHelper.ElementsDataModel.GetStateElement(keyElement);
 
-        public void CheckOpenElements()
+        public void ProcessOpenElements()
         {
             if (GetStateElement() == StateElement.Open)
             {
@@ -42,32 +42,33 @@ namespace Setups
                 foreach (var elementSetup in parentElements)
                 {
                     elementSetup.Init(_sessionDataController, _dataHelper);
-                    elementSetup.CheckOpenElements();
+                    elementSetup.ProcessOpenElements();
                 }
             }
             else
                 _sessionDataController.AddFutureElements(this);
         }
 
+
         public ElementSetup CheckCreateNewElement(List<ElementSetup> currentElements)
         {
             if (currentElements.Count == 0) return null;
 
             foreach (ElementSetup element in parentElements)
-                if (ListEquals(element, currentElements))
+                if (element.ChildElementsMatch(currentElements))
                     return element;
 
             return null;
         }
 
-        private bool ListEquals(ElementSetup elementSetup, List<ElementSetup> containsElementSetups)
+        private bool ChildElementsMatch(List<ElementSetup> containsElementSetups)
         {
-            if ((elementSetup == null || containsElementSetups == null)
-                || (elementSetup.childElements.Count != containsElementSetups.Count))
+            if (childElements.Count != containsElementSetups.Count)
                 return false;
 
-            for (int i = 0; i < elementSetup.childElements.Count; i++)
-                if (!elementSetup.childElements.Contains(containsElementSetups[i]))
+            HashSet<ElementSetup> childElementSet = new HashSet<ElementSetup>(childElements);
+            foreach (ElementSetup containsElementSetup in containsElementSetups)
+                if (!childElementSet.Contains(containsElementSetup))
                     return false;
 
             return true;

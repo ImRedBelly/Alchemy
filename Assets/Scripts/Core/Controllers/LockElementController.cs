@@ -1,6 +1,5 @@
 ﻿using Zenject;
 using Services;
-using Setups;
 
 namespace Core.Controllers
 {
@@ -18,7 +17,6 @@ namespace Core.Controllers
 
         protected override void OnClickToButton()
         {
-            // Show info Dialog Or Open View Element
             if (stateElement)
                 _dialogHelper.CreateDialogElementInfo(_elementSetup);
             else

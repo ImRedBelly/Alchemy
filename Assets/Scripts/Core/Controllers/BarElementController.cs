@@ -1,9 +1,8 @@
-﻿using System;
-using Setups;
+﻿using Setups;
+using Zenject;
 using Core.Views;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Core.Controllers
 {
