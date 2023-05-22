@@ -7,7 +7,7 @@ namespace DataModels
     {
         public event Action<int> ChangeHintPoints;
 
-        [JsonProperty] private int _hintPointsAmounth;
+        [JsonProperty] private int _hintPointsAmounth = 10;
 
         public int GetHintPoints() => _hintPointsAmounth;
 

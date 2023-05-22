@@ -22,6 +22,8 @@ namespace Core.Controllers
 
         protected override void OnClickToButton()
         {
+            if (_dataHelper.HintPointsDataModel.GetHintPoints() < Constants.PriceHint) return;
+            _dataHelper.HintPointsDataModel.OnRemoveHintPoints(Constants.PriceHint);
             _dataHelper.ElementsDataModel.SetHintStateElement(_parentElementSetup.keyElement,
                 _elementSetup.keyElement, StateElement.Open);
             _dataHelper.SaveElementsDataModel();

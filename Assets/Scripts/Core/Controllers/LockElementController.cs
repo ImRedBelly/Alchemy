@@ -21,7 +21,9 @@ namespace Core.Controllers
                 _dialogHelper.CreateDialogElementInfo(_elementSetup);
             else
             {
-                _dataHelper.ElementsDataModel.SetHintStateElement(_elementSetup.keyElement, 
+                if (_dataHelper.HintPointsDataModel.GetHintPoints() < Constants.PriceHint) return;
+                _dataHelper.HintPointsDataModel.OnRemoveHintPoints(Constants.PriceHint);
+                _dataHelper.ElementsDataModel.SetHintStateElement(_elementSetup.keyElement,
                     _elementSetup.keyElement, StateElement.Open);
                 _dataHelper.SaveElementsDataModel();
                 UpdateElementSetup();
