@@ -5,6 +5,7 @@ using UnityEngine;
 using Core.Controllers;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Core
 {
@@ -23,9 +24,9 @@ namespace Core
         private List<ElementController> _unlockElements = new List<ElementController>();
         private List<ElementController> _futureElements = new List<ElementController>();
 
-        private void Start()
+        private async void Start()
         {
-            StartCoroutine(CheckElementSetups());
+           await CheckElementSetupsAsync();
             _sessionDataController.CreateNewElement += RemoveFutureAndCreateUnlockElement;
         }
 
@@ -33,8 +34,8 @@ namespace Core
         {
             _sessionDataController.CreateNewElement -= RemoveFutureAndCreateUnlockElement;
         }
-
-        private IEnumerator CheckElementSetups()
+        
+        private async Task CheckElementSetupsAsync()
         {
             foreach (var elementSetup in _baseElements)
             {
@@ -44,10 +45,13 @@ namespace Core
 
             foreach (var elementSetup in _baseElements)
                 elementSetup.ProcessOpenElements();
-            yield return new WaitForSeconds(1);
+
+            await Task.Delay(1000);
+
             CreateOpenElements(_sessionDataController.GetUnlockElements());
             CreateFutureElements(_sessionDataController.GetFutureElements());
         }
+        
 
         private void CreateOpenElements(List<ElementSetup> elementSetups)
         {
