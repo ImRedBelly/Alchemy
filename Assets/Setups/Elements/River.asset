@@ -12,10 +12,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b92d089e38fa347b6b3613b04178fe, type: 3}
   m_Name: River
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}
+    - {fileID: 11400000, guid: 019a34090837b5449a46775df3d94812, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: parentElements
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Setups.ElementSetup, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[Setups.ElementSetup,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: childElements
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[Setups.ElementSetup, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 1
+    - Name: $v
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   keyElement: River
   iconElement: {fileID: 21300000, guid: 997d09ab5a3587d48bc9f08f4ad73b1f, type: 3}
-  parentElements: []
-  childElements:
-  - {fileID: 11400000, guid: 019a34090837b5449a46775df3d94812, type: 2}
-  - {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}
-  - {fileID: 11400000, guid: 019a34090837b5449a46775df3d94812, type: 2}

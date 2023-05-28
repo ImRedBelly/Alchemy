@@ -12,14 +12,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b92d089e38fa347b6b3613b04178fe, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 4094714a222bfeb46884bf1af9f578bd, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: parentElements
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Setups.ElementSetup, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[Setups.ElementSetup,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 10
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: childElements
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[Setups.ElementSetup, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   keyElement: Water
   iconElement: {fileID: 21300000, guid: 530746426101d5546b1795ba2a3112f1, type: 3}
-  parentElements:
-  - {fileID: 11400000, guid: cafb6519361ef9c47802ee6dde946b6b, type: 2}
-  - {fileID: 11400000, guid: f21a215c4fcc94c40847bbf2e1682f0b, type: 2}
-  - {fileID: 11400000, guid: 9472041315cd9b4409a50694289dd3a5, type: 2}
-  - {fileID: 11400000, guid: 4094714a222bfeb46884bf1af9f578bd, type: 2}
-  - {fileID: 11400000, guid: 48c39221be29b6345b31d944bc28ce10, type: 2}
-  - {fileID: 11400000, guid: 93af8f3f9a49fb6489641e066dbbc010, type: 2}
-  - {fileID: 11400000, guid: 1bee16bab62fdf845b8ee41b0c4e4d37, type: 2}
-  childElements: []

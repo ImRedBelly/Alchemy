@@ -3,9 +3,8 @@ using Zenject;
 using Services;
 using UnityEngine;
 using Core.Controllers;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Core
 {
@@ -75,7 +74,7 @@ namespace Core
                     CreateUnlockElementPanel(elementSetup, _parentUnlockElements);
 
 
-                    foreach (var newFutureElementSetup in elementSetup.parentElements)
+                    foreach (var newFutureElementSetup in elementSetup.parentElements.Keys)
                         if (!_sessionDataController.FutureElementIsCreated(newFutureElementSetup))
                         {
                             newFutureElementSetup.Init(_sessionDataController, _dataHelper);

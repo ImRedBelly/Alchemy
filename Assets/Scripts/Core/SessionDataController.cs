@@ -15,7 +15,7 @@ namespace Core
 
         private List<ElementSetup> _unlockElements = new List<ElementSetup>();
         private List<ElementSetup> _futureElements = new List<ElementSetup>();
-        private List<ElementSetup> _elementInBar = new List<ElementSetup>();
+        private Dictionary<ElementSetup, int> _elementInBar = new Dictionary<ElementSetup, int>();
         private List<BarElementController> _barButtonsElementControllers = new List<BarElementController>();
 
 
@@ -31,7 +31,7 @@ namespace Core
                 barElement.RemoveElementSetup();
         }
 
-        public List<ElementSetup> GetElementInBar() => _elementInBar;
+        public Dictionary<ElementSetup, int> GetElementInBar() => _elementInBar;
 
         public void OnAppendElement(ElementSetup elementSetup)
         {
@@ -40,14 +40,23 @@ namespace Core
             if (elementBar != null)
             {
                 elementBar.UpdateElementSetup(elementSetup);
-                _elementInBar.Add(elementSetup);
+
+                if (_elementInBar.ContainsKey(elementSetup))
+                    _elementInBar[elementSetup]++;
+                else
+                    _elementInBar.Add(elementSetup, 1);
             }
         }
 
         public void OnRemoveElement(ElementSetup elementSetup)
         {
-            if (_elementInBar.Contains(elementSetup))
-                _elementInBar.Remove(elementSetup);
+            if (_elementInBar.ContainsKey(elementSetup))
+            {
+                if (_elementInBar[elementSetup] > 1)
+                    _elementInBar[elementSetup]--;
+                else
+                    _elementInBar.Remove(elementSetup);
+            }
         }
 
         public List<ElementSetup> GetUnlockElements() => _unlockElements;

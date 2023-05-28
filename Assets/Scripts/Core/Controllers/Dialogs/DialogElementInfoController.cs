@@ -13,7 +13,7 @@ namespace Core.Controllers.Dialogs
             foreach (var childElement in elementSetup.childElements)
             {
                 var elementInfo = Instantiate(_elementInfoController, _parentElementInfo);
-                elementInfo.Initialize(elementSetup, childElement);
+                elementInfo.Initialize(elementSetup, childElement.Key);
             }
         }
     }

@@ -1,9 +1,9 @@
 ﻿using Setups;
-using System.Linq;
 using UnityEngine;
 using UnityEditor;
 using OdinNode.Scripts;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 
 namespace OdinNode.ElementsGraph
 {
@@ -39,15 +39,48 @@ namespace OdinNode.ElementsGraph
 
             EditorUtility.SetDirty(elementSetup);
             var parentPort = GetOutputPort(nameof(outputElementNode)).GetConnections();
-            elementSetup.parentElements = parentPort.Select(x => x.node as ElementDataNode)
-                .Select(x => x.elementSetup).ToList();
+            Dictionary<ElementSetup, int> setupsParent = new Dictionary<ElementSetup, int>();
+            foreach (var nodePort in parentPort)
+            {
+                var amountSetup = 1;
+                var node = nodePort.node as ElementDataNode;
+                var setup = node.elementSetup;
+                if (setupsParent.ContainsKey(setup))
+                    setupsParent[setup]++;
+                else
+                {
+                    if (elementSetup.childElements.ContainsKey(setup))
+                        amountSetup = elementSetup.childElements[setup];
+                    setupsParent.Add(setup, amountSetup);
+                }
+            }
 
-            var icon = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Sprites/IconsElement/{elementSetup.keyElement}.png");
-            
+            elementSetup.parentElements = setupsParent;
+
+
+            var icon = AssetDatabase.LoadAssetAtPath<Sprite>(
+                $"Assets/Sprites/IconsElement/{elementSetup.keyElement}.png");
+
 
             var childPort = GetInputPort(nameof(inputElementNode)).GetConnections();
-            elementSetup.childElements = childPort.Select(x => x.node as ElementDataNode)
-                .Select(x => x.elementSetup).ToList();
+            Dictionary<ElementSetup, int> setupsChild = new Dictionary<ElementSetup, int>();
+            foreach (var nodePort in childPort)
+            {
+                var amountSetup = 1;
+                var node = nodePort.node as ElementDataNode;
+                var setup = node.elementSetup;
+                if (setupsChild.ContainsKey(setup))
+                    setupsChild[setup]++;
+                else
+                {
+                    if (elementSetup.childElements.ContainsKey(setup))
+                        amountSetup = elementSetup.childElements[setup];
+                    setupsChild.Add(setup, amountSetup);
+                }
+            }
+
+
+            elementSetup.childElements = setupsChild;
             name = elementSetup.keyElement;
             elementSetup.iconElement = icon;
             AssetDatabase.SaveAssets();
