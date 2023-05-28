@@ -17,6 +17,8 @@ MonoBehaviour:
   parentElements:
   - {fileID: 11400000, guid: 344958b33fdb1bb4ab08810fddf523c8, type: 2}
   - {fileID: 11400000, guid: c211e14a616b1824a96098e9a6e70cd7, type: 2}
+  - {fileID: 11400000, guid: fd2b766929313374daaadec7bc7a9d73, type: 2}
+  - {fileID: 11400000, guid: 1bee16bab62fdf845b8ee41b0c4e4d37, type: 2}
   childElements:
   - {fileID: 11400000, guid: 019a34090837b5449a46775df3d94812, type: 2}
   - {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}

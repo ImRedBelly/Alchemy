@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0b92d089e38fa347b6b3613b04178fe, type: 3}
-  m_Name: Heat
+  m_Name: Sun
   m_EditorClassIdentifier: 
-  keyElement: Heat
-  iconElement: {fileID: 21300000, guid: 2fe68e2345218854485332d98a571a89, type: 3}
+  keyElement: Sun
+  iconElement: {fileID: 21300000, guid: 694cc953826e1ba45a4f71ca7406d1c1, type: 3}
   parentElements: []
   childElements:
-  - {fileID: 11400000, guid: 93bb6ac6ddbe4fd49a1ad48f467c58ea, type: 2}
   - {fileID: 11400000, guid: f060efe87e0698546abe0458aec6fb2b, type: 2}
+  - {fileID: 11400000, guid: 4d9c3cd6d297faa46a8e9a18bb4cacc1, type: 2}

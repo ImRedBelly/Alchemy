@@ -42,11 +42,14 @@ namespace OdinNode.ElementsGraph
             elementSetup.parentElements = parentPort.Select(x => x.node as ElementDataNode)
                 .Select(x => x.elementSetup).ToList();
 
+            var icon = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/Sprites/IconsElement/{elementSetup.keyElement}.png");
+            
 
             var childPort = GetInputPort(nameof(inputElementNode)).GetConnections();
             elementSetup.childElements = childPort.Select(x => x.node as ElementDataNode)
                 .Select(x => x.elementSetup).ToList();
             name = elementSetup.keyElement;
+            elementSetup.iconElement = icon;
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
