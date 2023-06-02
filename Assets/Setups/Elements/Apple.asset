@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0b92d089e38fa347b6b3613b04178fe, type: 3}
-  m_Name: Gravity
+  m_Name: Apple
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 9b532291102c5ab44b0328ca2b6133b9, type: 2}
-    - {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}
+    - {fileID: 11400000, guid: 5397a4e17e0ba6d49be3f0dcfe295458, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -36,19 +35,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
       Data: 0
-    - Name: $v
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -70,10 +57,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 10
-      Data: 1
+      Data: 0
     - Name: $v
       Entry: 3
-      Data: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -83,5 +70,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  keyElement: Gravity
-  iconElement: {fileID: 21300000, guid: 6fa03213556947c43a15496ff1ed59ab, type: 3}
+  keyElement: Apple
+  iconElement: {fileID: 21300000, guid: e7d7e487a2cfc8e4bb6df7ebcd8ee3cc, type: 3}

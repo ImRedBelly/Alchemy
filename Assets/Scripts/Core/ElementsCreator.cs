@@ -1,3 +1,4 @@
+using System;
 using Setups;
 using Zenject;
 using Services;
@@ -10,6 +11,8 @@ namespace Core
 {
     public class ElementsCreator : MonoBehaviour
     {
+        public event Action LoadElements;
+
         [SerializeField] private ElementController _unlockElementController;
         [SerializeField] private ElementController _lockElementController;
 
@@ -23,9 +26,9 @@ namespace Core
         private List<ElementController> _unlockElements = new List<ElementController>();
         private List<ElementController> _futureElements = new List<ElementController>();
 
-        private async void Start()
+        private void Start()
         {
-           await CheckElementSetupsAsync();
+            CheckElementSetupsAsync();
             _sessionDataController.CreateNewElement += RemoveFutureAndCreateUnlockElement;
         }
 
@@ -33,8 +36,8 @@ namespace Core
         {
             _sessionDataController.CreateNewElement -= RemoveFutureAndCreateUnlockElement;
         }
-        
-        private async Task CheckElementSetupsAsync()
+
+        private async void CheckElementSetupsAsync()
         {
             foreach (var elementSetup in _baseElements)
             {
@@ -45,12 +48,16 @@ namespace Core
             foreach (var elementSetup in _baseElements)
                 elementSetup.ProcessOpenElements();
 
-            await Task.Delay(1000);
 
-            CreateOpenElements(_sessionDataController.GetUnlockElements());
-            CreateFutureElements(_sessionDataController.GetFutureElements());
+            Task taskForOpenElements = Task.Run(() =>
+                CreateOpenElements(_sessionDataController.GetUnlockElements()));
+            Task taskForFutureElements = Task.Run(() =>
+                CreateFutureElements(_sessionDataController.GetFutureElements()));
+
+            await Task.WhenAll(taskForOpenElements, taskForFutureElements);
+            LoadElements?.Invoke();
         }
-        
+
 
         private void CreateOpenElements(List<ElementSetup> elementSetups)
         {
