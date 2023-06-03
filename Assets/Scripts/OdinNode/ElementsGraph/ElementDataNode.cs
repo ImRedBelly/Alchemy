@@ -35,6 +35,8 @@ namespace OdinNode.ElementsGraph
 
                 AssetDatabase.CreateAsset(asset, $"Assets/Setups/Elements/{keyNewElement}.asset");
                 elementSetup = asset;
+                elementSetup.parentElements = new Dictionary<ElementSetup, int>();
+                elementSetup.childElements = new Dictionary<ElementSetup, int>();
             }
 
             EditorUtility.SetDirty(elementSetup);

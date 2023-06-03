@@ -49,23 +49,21 @@ namespace Core
                 elementSetup.ProcessOpenElements();
 
 
-            Task taskForOpenElements = Task.Run(() =>
-                CreateOpenElements(_sessionDataController.GetUnlockElements()));
-            Task taskForFutureElements = Task.Run(() =>
-                CreateFutureElements(_sessionDataController.GetFutureElements()));
+            Task taskForOpenElements = CreateOpenElements(_sessionDataController.GetUnlockElements());
+            Task taskForFutureElements = CreateFutureElements(_sessionDataController.GetFutureElements());
 
             await Task.WhenAll(taskForOpenElements, taskForFutureElements);
             LoadElements?.Invoke();
         }
 
 
-        private void CreateOpenElements(List<ElementSetup> elementSetups)
+        private async Task CreateOpenElements(List<ElementSetup> elementSetups)
         {
             foreach (var elementSetup in elementSetups)
                 _unlockElements.Add(CreateUnlockElementPanel(elementSetup, _parentUnlockElements));
         }
 
-        private void CreateFutureElements(List<ElementSetup> elementSetups)
+        private async Task CreateFutureElements(List<ElementSetup> elementSetups)
         {
             foreach (var elementSetup in elementSetups)
                 _futureElements.Add(CreateLockElementPanel(elementSetup, _parentFuturelements));

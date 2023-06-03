@@ -32,7 +32,10 @@ MonoBehaviour:
       _node: {fileID: -7054486341330485059}
       _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: inputElementNode
+        node: {fileID: 8232273595501470144}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -209,6 +212,9 @@ MonoBehaviour:
       - fieldName: inputElementNode
         node: {fileID: 6173213806052125810}
         reroutePoints: []
+      - fieldName: inputElementNode
+        node: {fileID: 8232273595501470144}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -237,6 +243,7 @@ MonoBehaviour:
   - {fileID: -5045249540285086586}
   - {fileID: 6173213806052125810}
   - {fileID: -5665461516507378079}
+  - {fileID: 8232273595501470144}
 --- !u!114 &6173213806052125810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,5 +336,52 @@ MonoBehaviour:
       _dynamic: 0
   keyNewElement: Ground
   elementSetup: {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}
+  inputElementNode: {fileID: 0}
+  outputElementNode: {fileID: 0}
+--- !u!114 &8232273595501470144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0a7534610c4ecabe58ecfafea98c3b, type: 3}
+  m_Name: Steam
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -657.2415, y: -111.4095}
+  ports:
+    keys:
+    - inputElementNode
+    - outputElementNode
+    values:
+    - _fieldName: inputElementNode
+      _node: {fileID: 8232273595501470144}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputElementNode
+        node: {fileID: -7054486341330485059}
+        reroutePoints: []
+      - fieldName: outputElementNode
+        node: {fileID: -3791293717448018847}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outputElementNode
+      _node: {fileID: 8232273595501470144}
+      _typeQualifiedName: OdinNode.ElementsGraph.ElementDataNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  keyNewElement: Steam
+  elementSetup: {fileID: 11400000, guid: a5d0afb1488a24a4aa4e1ee62a51b302, type: 2}
   inputElementNode: {fileID: 0}
   outputElementNode: {fileID: 0}
