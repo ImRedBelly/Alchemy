@@ -57,7 +57,13 @@ namespace OdinNode.ElementsGraph
                 }
             }
 
-            elementSetup.parentElements = setupsParent;
+            foreach (var kv in setupsParent)
+            {
+                if (!elementSetup.parentElements.ContainsKey(kv.Key))
+                    elementSetup.parentElements.Add(kv.Key, kv.Value);
+                else
+                    elementSetup.parentElements[kv.Key] = kv.Value;
+            }
 
 
             var icon = AssetDatabase.LoadAssetAtPath<Sprite>(
@@ -81,8 +87,14 @@ namespace OdinNode.ElementsGraph
                 }
             }
 
+            foreach (var kv in setupsChild)
+            {
+                if (!elementSetup.childElements.ContainsKey(kv.Key))
+                    elementSetup.childElements.Add(kv.Key, kv.Value);
+                else
+                    elementSetup.childElements[kv.Key] = kv.Value;
+            }
 
-            elementSetup.childElements = setupsChild;
             name = elementSetup.keyElement;
             elementSetup.iconElement = icon;
             AssetDatabase.SaveAssets();

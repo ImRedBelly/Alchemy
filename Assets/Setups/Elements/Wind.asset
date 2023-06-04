@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0b92d089e38fa347b6b3613b04178fe, type: 3}
-  m_Name: Gravity
+  m_Name: Wind
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 0}
-    - {fileID: 11400000, guid: c2c1919ac0e1bd94da11a59935c8d585, type: 2}
+    - {fileID: 11400000, guid: 3d4a601826f9cae4d82225a1ab43970e, type: 2}
+    - {fileID: 11400000, guid: 93bb6ac6ddbe4fd49a1ad48f467c58ea, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -73,7 +73,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -83,5 +83,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  keyElement: Gravity
-  iconElement: {fileID: 21300000, guid: 6fa03213556947c43a15496ff1ed59ab, type: 3}
+  keyElement: Wind
+  iconElement: {fileID: 21300000, guid: fc3789ccb7138514dbbc6a42372fe242, type: 3}
