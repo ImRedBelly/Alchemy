@@ -667,6 +667,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
+    Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3;COM_ALEXPLAY_NET_DATA
     WebGL: ODIN_INSPECTOR;ODIN_INSPECTOR_3;COM_ALEXPLAY_NET_DATA
   additionalCompilerArguments: {}
   platformArchitecture: {}
